@@ -1,8 +1,8 @@
 language: javascript
 
-install: "pip install --user $(whoami) -r requirements.txt"
+install: ""
 
-script: ""
+script: "./setup.sh"
 
 env:
   global:
