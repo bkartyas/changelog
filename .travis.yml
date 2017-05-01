@@ -2,7 +2,17 @@ language: javascript
 
 install: "pip install --user $(whoami) -r requirements.txt"
 
-script: ""
+script:
+  - sonar-scanner
+
+addons:
+  sonarqube:
+    organization: "changelog"
+    token:
+      secure: F29Mfcn5uPaSCJHrHSLDetA6FQ86glKDUNBJnU3C6H2XQRhFY7QI73RBWeBsE+REjNXzfotmTmcvDwZiczaToiVkEHUXED+PXd0GPbMohweu0oKnlan4GoRey+oDoSmP4LHo3z9CxeCKxRvyYpZLwe7/06DRpz7gizTnT1nwoRdvX0FkUC+UulSoyePWZHgbu5tlCqc2iMq0vBvWJ+bSqlbjfJYD5cvAGg7sAOk56gRXx8FGjfggNVFfM+R/es8i2kupC8mdQ3SZdyiMpzXQlBE59xyTB66Wb2vQWXlOpngJje20Yl86IZy3AfrhEkY1M5/XVRZoQA3fz/O2eb/ziqCv+mYkmcccDkwtOPwV3zXIVFa0I/rlPjfemTFcIRr+M7vaZMjLmMgnHcf4AbrkF2BPZZW8tBF4zhrpoqBLNgVAlaxxhB6+FQS727AINh5/KvYytIg3fz4qbWJnSkJsSTG0G8iS1OAhK3ed78YryU3EWkE7xebut1XoQAVJXvxp7eCPjj3/nbAMl7WP50UwFe7ELJtgiu07eAxSXOrFajBVWvPGc9f6LWXvFhWrCko5vwcGkq9fRIdBvS4AXgIHNalgc12+l7c2GRshAJj5H8GYhEsA+8nhv0MyBswX2IPo+4NYrmO3uD5TLBzl/89z92NYwgJrw0ZVO9xfVICxL+A= # encrypted value of your token
+    branches:
+      - master
+      - integrate_sonar
 
 env:
   global:
