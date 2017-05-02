@@ -176,7 +176,7 @@
                 elapsed = 0,
                 intervalId;
             $scope.percent = 0;
-            intervalId = $interval(function () {
+            $interval(function () {
                 elapsed += stepGranularity;
                 $scope.percent = (elapsed / refreshInterval) * 100;
                 if (elapsed >= refreshInterval) {
