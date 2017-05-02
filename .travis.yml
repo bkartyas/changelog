@@ -1,11 +1,13 @@
-language: node_js
-node_js:
-  - 0.8
+language: javascript
+
+before_script:
+    - npm install karma
 
 install: "pip install --user $(whoami) -r requirements.txt"
 
 script:
   - sonar-scanner
+  - karma start ./my.conf.js --single-run --browsers PhantomJS
 
 addons:
   sonarqube:
