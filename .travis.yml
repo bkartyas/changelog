@@ -13,6 +13,7 @@ addons:
     branches:
       - master
       - integrate_sonar
+      - fix_sonar_bugs
 
 env:
   global:
