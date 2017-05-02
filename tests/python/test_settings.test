@@ -1,0 +1,45 @@
+#!/usr/bin/env python
+
+import unittest
+import os
+
+APP_DIR = os.getcwd() + '/'
+TEST_DIR = APP_DIR + '/tests/python/'
+
+
+class TestStringMethods(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(self):
+        os.symlink(APP_DIR + 'settings.py', TEST_DIR + 'settings.py')
+        os.environ['CHANGELOG_SETTINGS_PATH'] = TEST_DIR + 'test_extra_settings.py'
+        import settings
+        self.settings = settings
+
+    @classmethod
+    def tearDownClass(self):
+        os.unlink(TEST_DIR + 'settings.py')
+
+    def test_default_settings(self):
+        self.assertEqual(self.settings.ALCHEMY_URL, 'sqlite:///changelog.db')
+        self.assertEqual(self.settings.LISTEN_HOST, '127.0.0.1')
+        self.assertEqual(self.settings.LISTEN_PORT, 5000)
+
+        self.assertEqual(self.settings.USE_SENTRY, False)
+        self.assertEqual(self.settings.SENTRY_DSN, None)
+
+    def test_extra_settings(self):
+        self.assertEqual(self.settings.A, 'B')
+        self.assertEqual(self.settings.B, 'B')
+        self.assertEqual(self.settings.C, 'C')
+
+        self.assertEqual(self.settings.a, 'B')
+        self.assertEqual(self.settings.b, 'B')
+        self.assertEqual(self.settings.c, 'C')
+
+        self.assertEqual(self.settings._a_, '_a')
+        self.assertFalse(hasattr(self.settings, '__a'))
+        self.assertEqual(self.settings._b_, '__a')
+
+if __name__ == '__main__':
+    unittest.main()

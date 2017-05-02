@@ -1,7 +1,7 @@
 language: python
 
 install:
-  - "pip install --user $(whoami) -r requirements.txt"
+  - "pip install -r requirements.txt"
 
 sudo: required
 
@@ -11,7 +11,7 @@ before_script:
 
 script:
   - npm test
-  - tests/unit.test
+  - tests/python/test_settings.test
 
 addons:
   sonarqube:
