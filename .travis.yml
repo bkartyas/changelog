@@ -1,13 +1,13 @@
 language: javascript
 
 before_script:
-    - npm install angular karma karma-jasmine jasmine-core angular-mocks karma-phantomjs-launcher
+    - npm install
 
 install: "pip install --user $(whoami) -r requirements.txt"
 
 script:
   - sonar-scanner
-  - ./node_modules/.bin/karma start ./my.conf.js --single-run --browsers PhantomJS
+  - npm test
 
 addons:
   sonarqube:
