@@ -11,7 +11,7 @@ import os
 extra_settings_path = os.getenv('CHANGELOG_SETTINGS_PATH')
 if extra_settings_path is not None:
     try:
-        print 'Loading user-specified settings from %s' % extra_settings_path
+        print("Loading user-specified settings from %s" % extra_settings_path)
     except IOError:
         pass
     import imp
@@ -19,6 +19,6 @@ if extra_settings_path is not None:
     globals().update(dict([(key, value) for key, value in extra_settings_module.__dict__.iteritems() if not key.startswith('__')]))
 
 try:
-    print 'Starting with settings', dict([(key, value) for key, value in globals().items() if key.isupper()])
+    print("Starting with settings", dict([(key, value) for key, value in globals().items() if key.isupper()]))
 except IOError:
     pass

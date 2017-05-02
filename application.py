@@ -111,12 +111,12 @@ def healthcheck():
         db_query = db.session.query(Event)
         db_query = db_query.limit(1)
         result = db_query.all()
-        if (len(result) == 0):
+        if len(result) == 0 :
             return "1 FAIL: No record is found in the database."
         else:
             return "0 OK: There is at least one record in the database."
     except Exception, e:
-        return ("1 FAIL: Some exception occured:\n %s" % str(e))
+        return "1 FAIL: Some exception occured:\n %s" % str(e)
 
 @app.route('/')
 def index():
