@@ -2,9 +2,20 @@ language: javascript
 
 install: "pip install --user $(whoami) -r requirements.txt"
 
+node_js:
+  - 0.8
+  
 script:
   - sonar-scanner
+  - node_modules/karma/bin/karma start my.conf.js --single-run
 
+before_install:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+
+before_script:
+  - npm install
+  
 addons:
   sonarqube:
     organization: "changelog"
