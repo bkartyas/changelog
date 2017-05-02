@@ -1,7 +1,7 @@
 language: javascript
 
 before_script:
-    - npm install karma karma-jasmine jasmine-core karma-phantomjs-launcher
+    - npm install angular karma karma-jasmine jasmine-core angular-mocks karma-phantomjs-launcher
 
 install: "pip install --user $(whoami) -r requirements.txt"
 
