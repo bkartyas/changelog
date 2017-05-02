@@ -173,8 +173,7 @@
         .controller('AutorefreshController', function ($scope, $interval, ChangelogApi) {
             var refreshInterval = 10000,
                 stepGranularity = 100,
-                elapsed = 0,
-                intervalId;
+                elapsed = 0;               
             $scope.percent = 0;
             $interval(function () {
                 elapsed += stepGranularity;
