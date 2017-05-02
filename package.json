@@ -15,10 +15,11 @@
     "jasmine-core": "^2.6.1",
     "karma": "^1.6.0",
     "karma-chrome-launcher": "^2.0.0",
-    "karma-jasmine": "^1.1.0"
+    "karma-jasmine": "^1.1.0",
+    "karma-phantomjs-launcher": "^1.0.4"
   },
   "scripts": {
-    "test": "test"
+    "test": "./node_modules/.bin/karma start ./my.conf.js --single-run --browsers PhantomJS"
   },
   "repository": {
     "type": "git",
