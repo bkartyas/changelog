@@ -1,8 +1,8 @@
-describe('UI-test', function() {
-	var webdriver = require('selenium-webdriver'),
-		By = webdriver.By,
-		until = webdriver.until;
+var webdriver = require('selenium-webdriver'),
+	By = webdriver.By,
+	until = webdriver.until;
 
+describe('UI-test', function() {
 	var driver = new webdriver.Builder()
 		.forBrowser('firefox')
 		.build();
