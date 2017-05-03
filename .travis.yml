@@ -1,11 +1,13 @@
 language: javascript
 
-install: 
-    - "pip install --user $(whoami) -r requirements.txt"
-    - npm install
+install:
+  - "pip install --user $(whoami) -r requirements.txt"
+
+before_script:
+  - sonar-scanner
+  - npm install
 
 script:
-  - sonar-scanner
   - npm test
 
 addons:
