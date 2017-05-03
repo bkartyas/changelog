@@ -26,8 +26,8 @@ describe('EventListController', function() {
 		$controller = _$controller_;
 	}));
 
-	describe('$scope.percent', function() {
-		it('wait to be percentage more than 10%', function() {
+	describe('$scope.loading', function() {
+		it('tests loading and events state', function() {
 			var $scope = {};
 			var loadFn = function () {};
 			var successFn = function () {};
