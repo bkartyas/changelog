@@ -1,9 +1,12 @@
 language: javascript
 
-install: "pip install --user $(whoami) -r requirements.txt"
+install: 
+    - "pip install --user $(whoami) -r requirements.txt"
+    - npm install
 
 script:
   - sonar-scanner
+  - npm test
 
 addons:
   sonarqube:

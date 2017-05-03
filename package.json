@@ -1,0 +1,33 @@
+{
+  "name": "changelog",
+  "version": "1.0.0",
+  "description": "Aims to answer the question \"what's changed in the last hour?\" in a distributed system. Very useful to have when the\r proverbial bad things hit the proverbial ventilation hardware. It can drastically drop mean time to recovery.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "angular": "^1.6.4",
+    "karma": "^1.6.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.6.4",
+    "jasmine-core": "^2.6.1",
+    "karma": "^1.6.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-phantomjs-launcher": "^1.0.4"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/karma start ./my.conf.js --browsers PhantomJS"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bkartyas/changelog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bkartyas/changelog/issues"
+  },
+  "homepage": "https://github.com/bkartyas/changelog#readme"
+}
