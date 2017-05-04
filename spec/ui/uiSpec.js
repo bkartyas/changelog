@@ -4,7 +4,7 @@ const webdriver = require('selenium-webdriver'),
     By = webdriver.By,
     until = webdriver.until;
 	
-const MAX_BROWSER_START_TIME_IN_MILLIS = 30000; //30 sec
+const MAX_BROWSER_START_TIME_IN_MILLIS = 100000; //100 sec
 	
 var driver;
 

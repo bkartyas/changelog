@@ -15,7 +15,6 @@
     "browserify": "^14.3.0",
     "browserify-shim": "^3.8.14",
     "chromedriver": "^2.29.0",
-    "jasmine": "^2.6.0",
     "jasmine-core": "^2.6.1",
     "karma": "^1.6.0",
     "karma-browserify": "^5.1.1",
