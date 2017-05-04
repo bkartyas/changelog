@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "angular": "^1.6.4",
+    "chromedriver": "^2.29.0",
     "karma": "^1.6.0"
   },
   "devDependencies": {
@@ -22,7 +23,8 @@
     "karma-jasmine": "^1.1.0",
     "karma-phantomjs-launcher": "^1.0.4",
     "selenium-webdriver": "",
-    "watchify": "^3.9.0"
+    "watchify": "^3.9.0",
+    "xvfb": "^0.2.3"
   },
   "scripts": {
     "test": "./node_modules/.bin/karma start ./my.conf.js --browsers PhantomJS"

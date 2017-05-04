@@ -1,20 +1,18 @@
-const chromedriver = require('chromedriver');
+const 	chromedriver = require('chromedriver'),
+		Xvfb = require('xvfb'),
+		webdriver = require('selenium-webdriver'),
+		By = webdriver.By,
+		until = webdriver.until,
+		MAX_BROWSER_START_TIME_IN_MILLIS = 100000; //100 sec
 
-const webdriver = require('selenium-webdriver'),
-    By = webdriver.By,
-    until = webdriver.until;
-	
-const MAX_BROWSER_START_TIME_IN_MILLIS = 100000; //100 sec
-	
-var driver;
-
-//jasmine.DEFAULT_TIMEOUT_INTERVAL = 30000;
+var xvfb = new Xvfb(), 
+	driver;
 
 describe("Chrome driver", function() {
 	var originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
 	
 	beforeAll(function() {
-		jasmine.DEFAULT_TIMEOUT_INTERVAL = MAX_BROWSER_START_TIME_IN_MILLIS; 
+		jasmine.DEFAULT_TIMEOUT_INTERVAL = MAX_BROWSER_START_TIME_IN_MILLIS;
 	});
 	
 	afterAll(function() {
@@ -22,6 +20,8 @@ describe("Chrome driver", function() {
 	});
 	
 	beforeEach(function(done) {
+		xvfb.startSync();
+		
 		let builder = new webdriver.Builder();
 		
 		//build browser
@@ -35,6 +35,7 @@ describe("Chrome driver", function() {
 	
 	afterEach(function(done) {
         driver.quit().then(done);
+		xvfb.stopSync();
     });
 	
 	it("should navigate to google ", function() {
