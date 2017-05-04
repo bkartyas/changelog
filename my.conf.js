@@ -34,8 +34,9 @@ module.exports = function(config) {
     },
 	
 	browserify: {
-      debug: true
+      debug: true,
     },
+	
 
 
     // test results reporter to use
