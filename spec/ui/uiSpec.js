@@ -13,14 +13,16 @@ describe("Chrome driver", function() {
 	
 	beforeAll(function() {
 		jasmine.DEFAULT_TIMEOUT_INTERVAL = MAX_BROWSER_START_TIME_IN_MILLIS;
+		xvfb.startSync();
 	});
 	
 	afterAll(function() {
 		jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
+		xvfb.stopSync();
 	});
 	
 	beforeEach(function(done) {
-		xvfb.startSync();
+		
 		
 		let builder = new webdriver.Builder();
 		
@@ -35,7 +37,7 @@ describe("Chrome driver", function() {
 	
 	afterEach(function(done) {
         driver.quit().then(done);
-		xvfb.stopSync();
+		
     });
 	
 	it("should navigate to google ", function() {
