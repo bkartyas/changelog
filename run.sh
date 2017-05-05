@@ -4,7 +4,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-tweakables=(ALCHEMY_URL LISTEN_HOST LISTEN_PORT USE_SENTRY SENTRY_DSN)
+tweakables=(ALCHEMY_URL LISTEN_HOST LISTEN_PORT USE_SENTRY SENTRY_DSN SEED_DB)
 export CHANGELOG_SETTINGS_PATH="${CHANGELOG_SETTINGS_PATH:-./custom_settings.py}"
 
 is_tweakable_raw()

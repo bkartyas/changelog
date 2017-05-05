@@ -8,6 +8,7 @@ from sqlalchemy.exc import IntegrityError
 import settings
 from sqlalchemy.ext.declarative import declarative_base
 from flask.ext.cors import CORS
+from dbseed import seed
 
 app = Flask(__name__)
 
@@ -46,7 +47,6 @@ events = Table('events', Base.metadata,
                )
 Base.metadata.create_all(db.engine)
 
-
 class Event(db.Model):
     __table__ = events
     __mapper_args__ = {
@@ -59,6 +59,17 @@ class Event(db.Model):
         self.category = category
         self.description = description
 
+# seed db
+if settings.SEED_DB:
+	try: 
+		data = seed.get()
+		for item in data:
+			event = Event(item['criticality'], item['unix_timestamp'], item['category'], item['description'])
+			db.session.add(event)
+
+		db.session.commit()
+	except:
+		print("Unexpected error in seeding db")
 
 class EventList(Resource):
     def get(self):

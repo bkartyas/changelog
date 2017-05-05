@@ -6,6 +6,8 @@ LISTEN_PORT = 5000
 USE_SENTRY = False
 SENTRY_DSN = None
 
+SEED_DB = False
+
 # Loading site-specific override settings
 import os
 extra_settings_path = os.getenv('CHANGELOG_SETTINGS_PATH')

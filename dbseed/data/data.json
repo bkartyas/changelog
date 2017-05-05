@@ -1,0 +1,4 @@
+[
+{"criticality": 1, "unix_timestamp": 1495334488, "category": "misc", "description": "cli test"},
+{"criticality": 2, "unix_timestamp": 1495334488, "category": "misc", "description": "cli test2"}
+]
