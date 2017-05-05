@@ -60,18 +60,6 @@ class Event(db.Model):
         self.category = category
         self.description = description
 
-# seed db
-if settings.SEED_DB:
-	try: 
-		data = seed.get()
-		for item in data:
-			event = Event(item['criticality'], item['unix_timestamp'], item['category'], item['description'])
-			db.session.add(event)
-
-		db.session.commit()
-	except:
-		print("Unexpected error:", sys.exc_info()[0])
-
 class EventList(Resource):
     def get(self):
         query = query_parser.parse_args()
