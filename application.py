@@ -9,6 +9,7 @@ import settings
 from sqlalchemy.ext.declarative import declarative_base
 from flask.ext.cors import CORS
 from dbseed import seed
+import sys
 
 app = Flask(__name__)
 
@@ -69,7 +70,7 @@ if settings.SEED_DB:
 
 		db.session.commit()
 	except:
-		print("Unexpected error in seeding db")
+		print("Unexpected error:", sys.exc_info()[0])
 
 class EventList(Resource):
     def get(self):
